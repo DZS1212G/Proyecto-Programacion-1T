@@ -49,8 +49,8 @@ public class Juego_de_los_dados {
         System.out.println("\n\nIntroduce su respuesta (S/N)");
         game = sc.nextLine();
         // esto valida si se introduce una opcion no valida
-
-        while (game.length() == 0 || game.toUpperCase().charAt(0) != 'N' && game.toUpperCase().charAt(0) != 'S' || game.length() != 1) { //creo una validacion exclusiva por si el usuario mete un enter sin nada
+ //se valida si se mete un espacio vacio, si se mete algo diferente de s o n y si es mas de un character
+        while (game.length() == 0 || game.toUpperCase().charAt(0) != 'N' && game.toUpperCase().charAt(0) != 'S' || game.length() != 1) { 
             System.out.println("Opcion no valida \nIntroduzca de nuevo");
             System.out.println("\nQuieres jugar contra mi? (S/N)");
             game = sc.nextLine();
@@ -192,7 +192,7 @@ public class Juego_de_los_dados {
                 if (win == false) {
                     playerTurn = false;
                 }
-                if (moneyBot >= BET && moneyPlayer >= BET) {
+                if (moneyBot >= BET && moneyPlayer >= BET) { //esto hace que cuando no se tenga dinero suficiente salga dinero automaticamente
                     if (playerTurn == true) {
                         System.out.println("En la siguiente ronda te tocara a ti");
                     }
@@ -216,7 +216,7 @@ public class Juego_de_los_dados {
             System.out.printf("Jugador %d%nMaquina %d%nBanca %d%n", moneyPlayer, moneyBot, bank);
 
             //aqui no pongo else if para que no entren en caso de no querer boluntarieamnete jugar mas 
-            if (moneyBot < BET) {
+            if (moneyBot < BET) { 
                 System.out.println("No tengo la cantidad minima para seguir jugando, un placer haber jugado");
             }
             if (moneyPlayer < BET) {
