@@ -71,32 +71,26 @@ public class Juego_de_los_dados {
                     if (playerDice > botDice) {
                         System.out.println("Te toca a ti");
                         System.out.printf("\nResultado de tu primera tirada %d%n", tirada1);
-                        do {
+                        do { //aqui no polgo else if para que revise todas las opciones posibles, si no solo se queda con la primera
                             tirada2 = r.nextInt(1, 13);
-                            if (tirada1 == 7 || tirada1 == 11) {
-                                finish = true;
-                                win = true;
-                                round = false;
-                            } else if (tirada1 == 2 || tirada1 == 3 || tirada1 == 12) {
+                            if (tirada1 == 7 || tirada1 == 11 || tirada1 == 2 || tirada1 == 3 || tirada1 == 12 || tirada1 != 7 && tirada2 == 7 || tirada1 == tirada2) {
                                 finish = true;
                                 round = false;
-                                win = false;
-                            } else if (tirada1 == tirada2) {
-
-                                System.out.printf("Tu tirada para el punto %d%n", tirada2);
-                                System.out.println("\nTu segunda tirada es igual que la primera");
-
-                                finish = true;
-                                win = true;
-                                round = false;
-                            } else if (tirada1 != 7 && tirada2 == 7) {
-                                System.out.printf("Tu tirada para el punto %d%n", tirada2);
-                                System.out.println("\nSacaste un 7 antes de sacar tu punto");
-                                finish = true;
-                                round = false;
-                                win = false;
+                                if (tirada1 == 7 || tirada1 == 11 || tirada1 == tirada2) {
+                                    win = true;
+                                }
+                                if (tirada1 == 2 || tirada1 == 3 || tirada1 == 12 || tirada1 != 7 && tirada2 == 7) {
+                                    win = false;
+                                }
+                                if (tirada1 != 7 && tirada2 == 7) {
+                                    System.out.printf("Tu tirada para el punto %d%n", tirada2);
+                                    System.out.println("\nSacaste un 7 antes de sacar tu punto");
+                                }
+                                if (tirada1 == tirada2) {
+                                    System.out.printf("Tu tirada para el punto %d%n", tirada2);
+                                    System.out.println("\nTu segunda tirada es igual que la primera");
+                                }
                             }
-
                         } while (round == true);
                         if (win == true && finish == true) {
                             System.out.println("Enorabuena, has ganado");
@@ -109,32 +103,26 @@ public class Juego_de_los_dados {
                     } else {
                         System.out.println("Me toca a mi");
                         System.out.printf("Resultado de mi tirada es %d%n", tirada1);
-                        do {
+                        do { //aqui no polgo else if para que revise todas las opciones posibles, si no solo se queda con la primera
                             tirada2 = r.nextInt(1, 13);
-                            if (tirada1 == 7 || tirada1 == 11) {
-                                finish = true;
-                                win = true;
-                                round = false;
-                            } else if (tirada1 == 2 || tirada1 == 3 || tirada1 == 12) {
+                            if (tirada1 == 7 || tirada1 == 11 || tirada1 == 2 || tirada1 == 3 || tirada1 == 12 || tirada1 != 7 && tirada2 == 7 || tirada1 == tirada2) {
                                 finish = true;
                                 round = false;
-                                win = false;
-                            } else if (tirada1 == tirada2) {
-
-                                System.out.printf("Mi tiradada para el punto %d%n", tirada2);
-                                System.out.println("\nMi segunda tirada fue igual que la primera");
-
-                                finish = true;
-                                win = true;
-                                round = false;
-                            } else if (tirada1 != 7 && tirada2 == 7) {
-                                System.out.printf("Mi tirada para el punto %d%n", tirada2);
-                                System.out.println("\nHe sacado un 7 antes de sacar mi punto");
-                                finish = true;
-                                round = false;
-                                win = false;
+                                if (tirada1 == 7 || tirada1 == 11 || tirada1 == tirada2) {
+                                    win = true;
+                                }
+                                if (tirada1 == 2 || tirada1 == 3 || tirada1 == 12 || tirada1 != 7 && tirada2 == 7) {
+                                    win = false;
+                                }
+                                if (tirada1 != 7 && tirada2 == 7) {
+                                    System.out.printf("Tu tirada para el punto %d%n", tirada2);
+                                    System.out.println("\nSacaste un 7 antes de sacar tu punto");
+                                }
+                                if (tirada1 == tirada2) {
+                                    System.out.printf("Tu tirada para el punto %d%n", tirada2);
+                                    System.out.println("\nTu segunda tirada es igual que la primera");
+                                }
                             }
-                            System.out.printf("Mi tirada para el punto: %d%n", tirada2);
                         } while (round == true);
                         if (win == true && finish == true) {
                             System.out.println("\nHe ganado");
